@@ -86,7 +86,7 @@ module Spree
 
     def express_checkout_request_details order, items
       { SetExpressCheckoutRequestDetails: {
-          LocaleCode: current_locale == 'ru' ? 'ru_RU' : nil,
+          LocaleCode: I18n.locale == 'ru' ? 'ru_RU' : nil,
           InvoiceID: order.number,
           BuyerEmail: order.email,
           ReturnURL: confirm_paypal_url(payment_method_id: params[:payment_method_id], utm_nooverride: 1),
